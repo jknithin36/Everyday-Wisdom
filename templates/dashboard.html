@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Quote App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        position: relative;
+      }
+      .main-heading {
+        font-size: 36px;
+        font-weight: 300;
+        margin-top: 50px;
+        text-align: center;
+      }
+      .username {
+        font-size: 20px;
+        font-weight: 300;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .btn-logout {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .quote {
+        font-size: 26px;
+        font-style: italic;
+        text-align: center;
+        margin-top: 30px;
+        color: #007bff; /* Blue color for the quote */
+      }
+      .divider {
+        border-bottom: 2px solid #007bff;
+        margin: 20px 0;
+      }
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .action-button {
+        margin: 10px;
+      }
+      footer {
+        text-align: center;
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px 0;
+        font-size: 14px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+      footer a {
+        color: #ffffff;
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      /* Search bar styles */
+      .search-bar {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .search-input {
+        width: 60%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      .search-button {
+        padding: 8px 16px;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <!-- Main Heading with square root symbol -->
+      <div class="main-heading">Elevate Your Day with Everyday Wisdom!</div>
+
+      <!-- Username -->
+      <p class="username">Welcome, <span>{{ user.username }}</span>!</p>
+
+      <!-- Search bar -->
+      <div class="search-bar">
+        <input type="text" class="search-input" v-model="searchQuery" placeholder="Search quotes...">
+        <button class="search-button" @click="search">Search</button>
+      </div>
+
+      <!-- Quote and Divider -->
+      <p class="quote">"Make each day your masterpiece."</p>
+      <div class="divider"></div>
+
+      <!-- Content -->
+      <p>
+        Start your day with a positive thought and conquer challenges with
+        determination.
+      </p>
+      <p>Spread kindness, embrace gratitude, and let your light shine!</p>
+
+      <!-- Logout Button -->
+      <button class="btn btn-danger btn-logout" @click="logout">
+        Logout
+      </button>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-primary action-button" @click="goToAddQuote">
+          Add Quote
+        </button>
+        <button class="btn btn-primary action-button" @click="goToMyQuotes">
+          My Quotes
+        </button>
+        <button class="btn btn-primary action-button" @click="tryOurApp">
+          Try Our App
+        </button>
+        <button class="btn btn-primary action-button" @click="viewUserComments">
+          Your Comments
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        © 2024 Discover Wisdom. All rights reserved.</p>
+        <p>Follow us on:</p>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Twitter</a>
+        <a href="#" target="_blank">Instagram</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            user: {
+              email: "john@example.com",
+              username: "john_doe",
+              // Add more user data here if needed
+            },
+            searchQuery: '', // Initialize search query
+          };
+        },
+        methods: {
+          goToAddQuote() {
+            window.location.href = "/add_quote";
+          },
+          goToMyQuotes() {
+            window.location.href = "/my_quotes";
+          },
+          tryOurApp() {
+            window.location.href = "/try_our_app";
+          },
+          viewUserComments() {
+            window.location.href = "/view_user_comments"; // Redirect to view_user_comments route
+          },
+          logout() {
+            alert("Logout clicked!");
+            window.location.href = "/";
+          },
+          search() {
+            // Perform search functionality here
+            console.log("Searching for: " + this.searchQuery);
+          }
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

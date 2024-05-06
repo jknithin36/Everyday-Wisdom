@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try Our App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+      h1 {
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .quote-card {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      /* Additional CSS for button alignment */
+      .quote-actions .btn {
+        white-space: nowrap; /* Prevent button text wrapping */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn btn-primary mb-3" onclick="goBack()">Go Back</button>
+      <!-- Add the Go Back button -->
+      <h1>Random Quotes</h1>
+      {% if random_quotes %} {% for random_quote in random_quotes %}
+      <div class="quote-card">
+        <p>{{ random_quote.quote_text }} - {{ random_quote.author }}</p>
+        <div class="quote-actions">
+          <!-- Add comment and comments buttons here -->
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            onclick="commentOnQuote('{{ random_quote._id }}')"
+          >
+            Comment
+          </button>
+          <button
+            type="button"
+            class="btn btn-info btn-sm"
+            onclick="viewComments('{{ random_quote._id }}')"
+          >
+            Comments
+          </button>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <p>No quotes found.</p>
+      {% endif %}
+    </div>
+
+    <!-- JavaScript to handle go back button action -->
+    <script>
+      function goBack() {
+        // Redirect to the dashboard route
+        window.location.href = "/dashboard";
+      }
+
+      // Function to redirect to comment page with quote ID
+      function commentOnQuote(quoteId) {
+        window.location.href = `/comment?quote_id=${quoteId}`;
+      }
+
+      // Function to view comments for a quote
+      function viewComments(quoteId) {
+        window.location.href = `/comments?quote_id=${quoteId}`;
+      }
+    </script>
+  </body>
+</html>

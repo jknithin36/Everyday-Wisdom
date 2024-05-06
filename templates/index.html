@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discover Wisdom</title>
+    <!-- Google Fonts - Montserrat for headings and Lato for body text -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        background-color: #f8f9fa; /* Light gray background */
+        color: #343a40; /* Dark text color */
+        position: relative; /* Ensure body position is relative for absolute positioning */
+        min-height: 100vh; /* Ensure body takes up at least the full viewport height */
+      }
+
+      .container {
+        margin-top: 50px;
+        margin-bottom: 100px; /* Add some margin at the bottom to ensure space for the copyright notice */
+      }
+
+      .quote-box {
+        background-color: #fff; /* White background for quote box */
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        position: relative;
+      }
+
+      .quote-text {
+        font-size: 28px;
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .quote-author {
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        margin-bottom: 10px;
+      }
+
+      .quote-source {
+        font-style: italic;
+        font-size: 16px;
+        color: #6c757d; /* Subdued text color */
+        font-family: "Lato", sans-serif;
+      }
+
+      /* Button hover animation */
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        transition: transform 0.5s ease;
+      }
+
+      /* Richer layout */
+      .header {
+        background-color: #007bff; /* Primary blue color */
+        color: #fff; /* White text color */
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 48px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: bold;
+      }
+
+      .header p {
+        font-size: 24px;
+        margin-top: 20px;
+        font-family: "Lato", sans-serif;
+      }
+
+      /* Copyright notice */
+      .copyright {
+        background-color: #343a40; /* Dark background color */
+        color: #fff; /* White text color */
+        padding: 20px 0;
+        text-align: center;
+        font-size: 14px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <!-- Main header with a captivating quote -->
+      <h1>Discover Wisdom</h1>
+      <p>Explore insightful quotes to inspire your day</p>
+    </div>
+
+    <div class="container mt-5">
+      <!-- Quote section -->
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="quote-box text-center">
+            <p class="quote-text">
+              "The only way to do great work is to love what you do."
+            </p>
+            <p class="quote-author">Steve Jobs</p>
+            <p class="quote-source">
+              - From a commencement address at Stanford University
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links to signup and login pages -->
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-4">
+          <a href="/signup" class="btn btn-primary btn-lg w-100 mb-3"
+            >Start Your Journey
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="/login" class="btn btn-outline-primary btn-lg w-100"
+            >Restart Your Journey</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright notice -->
+    <div class="copyright">
+      <p>&copy; 2024 Discover Wisdom. All rights reserved.</p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

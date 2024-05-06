@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Quote App</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+        color: #007bff;
+        line-height: 1.5;
+      }
+
+      .user-info {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .quote {
+        font-size: 24px;
+        font-style: italic;
+        color: #007bff;
+      }
+
+      /* Added style for the buttons */
+      .action-button {
+        margin-top: 20px;
+      }
+
+      /* Style for the search bar */
+      .search-bar {
+        margin-bottom: 20px;
+      }
+
+      .divider {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h1>Elevate Your Day with Everyday Wisdom!</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control"
+          placeholder="Search..."
+        />
+      </div>
+      <div class="user-info">
+        <!-- Username and Logout Button -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+          "
+        >
+          <p class="username">Welcome, <span>{{ user.username }}</span>!</p>
+          <button class="btn btn-danger" @click="logout">Logout</button>
+        </div>
+        <p class="quote">Make each day your masterpiece.</p>
+        <div class="divider"></div>
+        <p>
+          Start your day with a positive thought and conquer challenges with
+          determination.
+        </p>
+        <p>Spread kindness, embrace gratitude, and let your light shine!</p>
+
+        <!-- Buttons -->
+        <button class="btn btn-primary action-button" @click="goToAddQuote">
+          Add Quote
+        </button>
+        <button class="btn btn-primary action-button" @click="goToMyQuotes">
+          My Quotes
+        </button>
+        <button class="btn btn-primary action-button" @click="tryOurApp">
+          Try Our App
+        </button>
+        <button class="btn btn-primary action-button" @click="viewUserComments">
+          Your Comments
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            user: {
+              email: "john@example.com",
+              username: "john_doe",
+              // Add more user data here if needed
+            },
+          };
+        },
+        methods: {
+          goToAddQuote() {
+            window.location.href = "/add_quote";
+          },
+          goToMyQuotes() {
+            window.location.href = "/my_quotes";
+          },
+          tryOurApp() {
+            window.location.href = "/try_our_app";
+          },
+          viewUserComments() {
+            window.location.href = "/view_user_comments"; // Redirect to view_user_comments route
+          },
+          logout() {
+            alert("Logout clicked!");
+            window.location.href = "/";
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

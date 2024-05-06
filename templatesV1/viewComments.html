@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Comments</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Comments</h1>
+      <ul class="list-group">
+        {% for comment in quote_comments %}
+        <li class="list-group-item">{{ comment.comment_text }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- Go Back Button -->
+      <a href="{{ url_for('try_our_app') }}" class="btn btn-secondary mt-3"
+        >Go Back</a
+      >
+    </div>
+  </body>
+</html>

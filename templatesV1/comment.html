@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Comment</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Comment</h1>
+      <form action="{{ url_for('comment') }}" method="POST">
+        <input type="hidden" name="quote_id" value="{{ quote._id }}" />
+        <div class="form-group">
+          <label for="comment_text">Comment:</label>
+          <textarea
+            class="form-control"
+            id="comment_text"
+            name="comment_text"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <!-- Go Back Button -->
+      <a href="{{ url_for('try_our_app') }}" class="btn btn-secondary mt-3"
+        >Go Back</a
+      >
+    </div>
+  </body>
+</html>

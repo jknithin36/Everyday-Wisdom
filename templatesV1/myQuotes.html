@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Quotes</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+      h1 {
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .quote-item {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 15px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .quote-actions {
+        display: flex;
+        gap: 10px;
+      }
+      /* Additional CSS for button alignment */
+      .quote-actions .btn {
+        white-space: nowrap; /* Prevent button text wrapping */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Quotes</h1>
+      <a href="/dashboard" class="btn btn-primary mb-3">Go Back</a>
+      <!-- Add the Go Back button -->
+      <ul class="list-group">
+        {% for quote in user_quotes %}
+        <li class="list-group-item quote-item">
+          <form method="POST" action="/delete_quote">
+            <input type="hidden" name="quote_id" value="{{ quote._id }}" />
+            {{ quote.quote_text }} - {{ quote.author }}
+            <div class="quote-actions">
+              <button
+                type="submit"
+                name="action"
+                value="delete"
+                class="btn btn-danger btn-sm"
+              >
+                Delete
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm edit-button"
+                onclick="editQuote('{{ quote._id }}')"
+              >
+                Edit
+              </button>
+            </div>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- JavaScript to handle edit button action -->
+    <script>
+      function editQuote(quoteId) {
+        // Redirect to edit quote page with quoteId parameter
+        window.location.href = `/edit_quote?quote_id=${quoteId}`;
+      }
+    </script>
+  </body>
+</html>
